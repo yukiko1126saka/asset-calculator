@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>資産運用シミュレーター</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Chart.js ライブラリの追加 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>資産運用シミュレーター</h1>
+        
+        <div class="input-section">
+            <div class="input-group">
+                <label for="currentAsset">現在の資産額（万円）</label>
+                <input type="number" id="currentAsset" placeholder="100">
+            </div>
+            
+            <div class="input-group">
+                <label for="monthlyInvestment">毎月の投資金額（万円）</label>
+                <input type="number" id="monthlyInvestment" placeholder="5" step="0.1">
+            </div>
+            
+            <div class="input-group">
+                <label for="interestRate">年間運用利回り（%）</label>
+                <input type="number" id="interestRate" placeholder="5" step="0.1">
+            </div>
+            
+            <div class="input-group">
+                <label for="period">運用期間（年）</label>
+                <input type="number" id="period" placeholder="10">
+            </div>
+            
+            <button id="calculateBtn">計算する</button>
+            <div id="errorMessage" class="error-message"></div>
+        </div>
+        
+        <div class="result-section" id="resultSection">
+            <h2>計算結果</h2>
+            <div class="result-item">
+                <span class="result-label">将来の資産額：</span>
+                <span class="result-value" id="futureAsset">-</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">増加額：</span>
+                <span class="result-value" id="assetIncrease">-</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">増加率：</span>
+                <span class="result-value" id="increaseRate">-</span>
+            </div>
+        </div>
+        
+        <!-- グラフ表示エリアを追加 -->
+        <div class="chart-section" id="chartSection">
+            <h2>資産推移グラフ</h2>
+            <div class="chart-container">
+                <canvas id="assetChart"></canvas>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
